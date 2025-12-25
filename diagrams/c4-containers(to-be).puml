@@ -1,0 +1,58 @@
+@startuml msa_containers
+
+' Initial settings:
+
+title "Containers To-Be diagram"
+top to bottom direction
+!include lib/C4_Container.puml
+
+
+' Actors & components:
+
+Person(user, "User", "Service user")
+
+Container_Boundary(abyss, "Cinema abyss") {
+    Container(proxy, "Proxy", "API gateway")
+
+    Container(broker, "Msg broker", "Messages broker")
+
+    Container(users, "Users service", "Users management")
+    ContainerDb(users_db, "Users db", "Users data")
+
+    Container(movies, "Movies service", "Movies management")
+    ContainerDb(movies_db, "Movies db", "Movies data")
+
+    Container(subs, "Subscriptions service", "Subscriptions management")
+    ContainerDb(subs_db, "Subscriptions db", "Subscriptions data")
+
+    Container(pays, "Payments service", "Payments management")
+    ContainerDb(pays_db, "Payments db", "Payments data")
+}
+
+
+' Relations:
+
+Rel(user, proxy, "Movies, users, payments, subscriptions requests")
+
+Rel(proxy, users, "Users requests")
+BiRel(users, users_db, "Users data")
+Rel(users, broker, "Users public events")
+Rel(broker, users, "Events for users")
+
+Rel(proxy, movies, "Movies requests")
+BiRel(movies, movies_db, "Movies data")
+Rel(movies, broker, "Movies public events")
+Rel(broker, movies, "Events for movies")
+
+Rel(proxy, subs, "Subscriptions requests")
+BiRel(subs, subs_db, "Subscriptions data")
+Rel(subs, broker, "Subscriptions public events")
+Rel(broker, subs, "Events for subscriptions")
+
+Rel(proxy, pays, "Payments requests")
+BiRel(pays, pays_db, "Payments data")
+Rel(pays, broker, "Payments public events")
+Rel(broker, pays, "Events for payments")
+
+
+@enduml
