@@ -154,3 +154,7 @@ go.work
 
 # Postman tests reports
 tests/postman/reports/
+
+# Python specific
+./src/microservices/proxy/.venv
+*__pycache__*
