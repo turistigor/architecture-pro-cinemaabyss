@@ -6,7 +6,7 @@ DrogonHandlerPtr<> create_payment_handler = [](
     const drogon::HttpRequestPtr& req,
     DrogonHandlerCallback&& callback
 ) {
-    LOG_INFO << "Create user POST-request received";
+    LOG_INFO << "Create payment POST-request received";
 
     bool res = kafka_echo_check(KafkaMsg::PAYMENT_CREATED, "Payment created");
 
