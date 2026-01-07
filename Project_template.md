@@ -349,7 +349,7 @@ minikube tunnel
 
 Потом вызовите 
 https://cinemaabyss.example.com/api/movies
-и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
+и приложите [скриншот развертывания helm](tests-result/task4-helm-deploy.png) и вывода https://cinemaabyss.example.com/api/movies - [скриншот](./tests-result/task4-helm-api-movies.png).
 
 
 # Задание 5
