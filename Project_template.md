@@ -424,3 +424,7 @@ kubectl delete namespace istio-system
 kubectl delete all --all -n cinemaabyss
 kubectl delete namespace cinemaabyss
 ```
+Скриншоты работы circuit-braker:
+- [Одно соединение](tests-result/task5-circuit-braker-18.png)
+- [Несколько соединений](tests-result/task5-circuit-braker-25.png)
+- [Успешно справился с нагрузкой](tests-result/task5-circuit-braker-100.png)
