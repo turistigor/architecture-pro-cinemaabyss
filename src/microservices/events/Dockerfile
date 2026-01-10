@@ -66,8 +66,8 @@ RUN addgroup -S appuser && adduser -S appuser -G appuser
 
 USER appuser
 
-ENV EVENTS_PORT=8082
-ENV EVENTS_HOST=0.0.0.0
+ENV HOST=0.0.0.0
+ENV PORT=8082
 
 EXPOSE 8082
 

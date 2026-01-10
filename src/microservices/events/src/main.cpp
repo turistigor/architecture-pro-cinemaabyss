@@ -12,8 +12,8 @@ static constexpr uint64_t THREADS_COUNT {4};
 
 
 int main() {
-    uint16_t port = get_env("EVENTS_PORT", PORT_DEF);
-    std::string host = get_env("EVENTS_HOST", HOST_DEF);
+    uint16_t port = get_env("PORT", PORT_DEF);
+    std::string host = get_env("HOST", HOST_DEF);
 
     auto& app = drogon::app();
 

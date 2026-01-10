@@ -21,6 +21,7 @@ KafkaAPI::KafkaAPI(const std::string& kafka_url) {
     this->_consumer_props.put("session.timeout.ms", "10000");
 
     this->_consumer = std::make_unique<KafkaConsumer>(this->_consumer_props);
+    this->_consumer->setLogLevel(Log::Level::Err);
     this->_consumer->subscribe({kafka_topics_set});
 
     this->_producer_props.put("bootstrap.servers", kafka_url);
@@ -28,6 +29,7 @@ KafkaAPI::KafkaAPI(const std::string& kafka_url) {
     this->_producer_props.put("enable.idempotence", "true");
 
     this->_producer = std::make_unique<KafkaProducer>(this->_producer_props);
+    this->_producer->setLogLevel(Log::Level::Err);
 }
 
 
