@@ -68,6 +68,7 @@ services:
 
   # Movies Microservice
   movies-service:
+    image: movies:latest
     build:
       context: ./src/microservices/movies
       dockerfile: Dockerfile
@@ -84,6 +85,7 @@ services:
 
   # Events Microservice
   events-service:
+    image: events:latest
     build:
       context: ./src/microservices/events
       dockerfile: Dockerfile
